@@ -54,11 +54,12 @@ public class JenkinsParametersDemoqaTest {
 
         step("Открываем раздел automation-practice-form", ()-> {
             open("/automation-practice-form");
-
-            SelenideElement bannerRoot = $(".fc-consent-root");
-            if (bannerRoot.isDisplayed()) {
-                bannerRoot.$(byText("Consent")).click();
-            }
+//
+//            SelenideElement bannerRoot = $(".fc-consent-root");
+//            if (bannerRoot.isDisplayed()) {
+//                bannerRoot.$(byText("Consent")).click();
+//            }
+            $(".fc-button-label").$(byText("Consent")).click();
 
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
