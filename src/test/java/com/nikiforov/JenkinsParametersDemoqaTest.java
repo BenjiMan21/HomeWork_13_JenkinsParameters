@@ -24,7 +24,7 @@ public class JenkinsParametersDemoqaTest {
     @BeforeAll
     static void beforeAll() {
 
-        System.setProperty("environment", System.getProperty("environment", "stage"));
+        System.setProperty("environment", System.getProperty("environment", "prod"));
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
