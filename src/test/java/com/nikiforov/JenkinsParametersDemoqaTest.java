@@ -23,6 +23,9 @@ import static io.qameta.allure.Allure.step;
 public class JenkinsParametersDemoqaTest {
     @BeforeAll
     static void beforeAll() {
+
+        System.setProperty("environment", System.getProperty("environment", "stage"));
+
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 5000;
@@ -69,8 +72,8 @@ public class JenkinsParametersDemoqaTest {
         });
 
         step("Заполняем форму", ()-> {
-            $("#firstName").setValue(projConfig.first_name());
-            $("#lastName").setValue(projConfig.last_name());
+            $("#firstName").setValue(projConfig.firstName());
+            $("#lastName").setValue(projConfig.lastName());
             $("#userEmail").setValue("unleash21@mail.ru");
             $("#genterWrapper").$(byText("Male")).click();
             $("#userNumber").setValue("8999777665");
