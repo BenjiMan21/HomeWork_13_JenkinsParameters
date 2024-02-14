@@ -100,7 +100,7 @@ public class JenkinsParametersDemoqaTest {
 
         step("Проверяем результат", ()-> {
             $(".modal-content").shouldHave(text("Thanks for submitting the form"));
-            $(".modal-body").shouldHave(text("Alex Nikiforov"));
+            $(".modal-body").shouldHave(text("projConfig.firstName(), projConfig.lastName()"));
             $(".modal-body").shouldHave(text("unleash21@mail.ru"));
             $(".modal-body").shouldHave(text("Male"));
             $(".modal-body").shouldHave(text("8999777665"));
