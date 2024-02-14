@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Первая работа с Jenkins")
-@Tag("first_task")
+@Tag("first_properties_task")
 public class JenkinsParametersDemoqaTest {
     @BeforeAll
     static void beforeAll() {
@@ -25,6 +25,7 @@ public class JenkinsParametersDemoqaTest {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 5000;
+        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
