@@ -3,9 +3,11 @@ package com.nikiforov;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.ProjConfig;
 import helpers.Attach;
 import io.qameta.allure.Owner;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -51,6 +53,7 @@ public class JenkinsParametersDemoqaTest {
     @Owner("Nikiforov")
     @DisplayName("Заполнение и проверка формы на сайте demoqa")
     void fillRegistrationForm() {
+        ProjConfig projConfig = ConfigFactory.create(ProjConfig.class);
 
         step("Открываем раздел automation-practice-form", ()-> {
             open("/automation-practice-form");
@@ -66,8 +69,8 @@ public class JenkinsParametersDemoqaTest {
         });
 
         step("Заполняем форму", ()-> {
-            $("#firstName").setValue("Alex");
-            $("#lastName").setValue("Nikiforov");
+            $("#firstName").setValue(projConfig.first_name());
+            $("#lastName").setValue(projConfig.last_name());
             $("#userEmail").setValue("unleash21@mail.ru");
             $("#genterWrapper").$(byText("Male")).click();
             $("#userNumber").setValue("8999777665");
