@@ -52,7 +52,7 @@ tasks.withType(Test) {
     }
 }
 
-task demoqa_first_task(type: Test) {
+task demoqa_first_properties_task(type: Test) {
     useJUnitPlatform {
         includeTags("first_properties_task")
     }
