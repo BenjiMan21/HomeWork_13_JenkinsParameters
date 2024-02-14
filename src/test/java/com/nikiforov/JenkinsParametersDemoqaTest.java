@@ -27,7 +27,7 @@ public class JenkinsParametersDemoqaTest {
         System.setProperty("environment", System.getProperty("environment", "prod"));
 
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "normal";
         Configuration.timeout = 5000;
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
@@ -60,12 +60,12 @@ public class JenkinsParametersDemoqaTest {
 
         step("Открываем раздел automation-practice-form", ()-> {
             open("/automation-practice-form");
-//
-//            SelenideElement bannerRoot = $(".fc-consent-root");
-//            if (bannerRoot.isDisplayed()) {
-//                bannerRoot.$(byText("Consent")).click();
-//            }
-            $(".fc-button").shouldHave(text("Consent")).click();
+
+            SelenideElement bannerRoot = $(".fc-consent-root");
+            if (bannerRoot.isDisplayed()) {
+                bannerRoot.$(byText("Consent")).click();
+            }
+//            $(".fc-button").shouldHave(text("Consent")).click();
 
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
