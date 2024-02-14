@@ -65,7 +65,6 @@ public class JenkinsParametersDemoqaTest {
             if (bannerRoot.isDisplayed()) {
                 bannerRoot.$(byText("Consent")).click();
             }
-//            $(".fc-button").shouldHave(text("Consent")).click();
 
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
