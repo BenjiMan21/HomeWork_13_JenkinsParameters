@@ -40,7 +40,10 @@ public class JenkinsParametersDemoqaTest {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+    }
 
+    @BeforeEach
+    void beforeEach() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
